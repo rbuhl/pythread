@@ -24,5 +24,5 @@ t = threading.Thread(name='non-daemon', target=non_daemon)
 
 d.start()
 t.start()
-d.join()
+d.join()  # blocks indefinitely
 t.join()
