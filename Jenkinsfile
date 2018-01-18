@@ -10,7 +10,8 @@ pipeline{
         stage ('Clone Repo') {
             steps{
                 sh 'echo branch: $BRANCH_NAME'
-                checkout([
+                def scmVars = checkout scm
+                /*([
                     $class: 'GitSCM',
                     branches: scm.branches,
                     doGenerateSubmoduleConfigurations: false,
@@ -22,7 +23,8 @@ pipeline{
                                           trackingSubmodules: true]],
                              submoduleCfg: [],,
                     userRemoteConfigs: scm.userRemoteConfigs
-                ])
+                ])*/
+
             }
         }   
 
