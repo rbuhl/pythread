@@ -3,7 +3,20 @@ node {
 
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
-        echo "cloning Branch: " env.BRANCH_NAME
+        echo "checkout: " scm.branches
+        checkout([
+         $class: 'GitSCM',
+         branches: scm.branches,
+         doGenerateSubmoduleConfigurations: false,
+         extensions: [[$class: 'SubmoduleOption',
+                                disableSubmodules: false,
+                                parentCredentials: true,
+                                recursiveSubmodules: true,
+                                reference: '',
+                                trackingSubmodules: true]], 
+                  submoduleCfg: [],,
+         userRemoteConfigs: scm.userRemoteConfigs
+    ])
 
     }
 
