@@ -3,7 +3,7 @@ node {
 
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
-        echo "checkout: " scm.branches
+
         checkout([
          $class: 'GitSCM',
          branches: scm.branches,
