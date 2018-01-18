@@ -10,7 +10,6 @@ pipeline{
         stage ('Clone Repo') {
             steps{
                 sh 'echo branch: $BRANCH_NAME'
-                sh 'echo $(scm.branches)'
                 checkout([
                     $class: 'GitSCM',
                     branches: scm.branches,
