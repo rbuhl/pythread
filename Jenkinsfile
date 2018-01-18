@@ -15,12 +15,13 @@ pipeline{
                     $class: 'GitSCM',
                     branches: scm.branches,
                     doGenerateSubmoduleConfigurations: false,
-                    extensions: [[$class: 'SubmoduleOption',
+                    extensions: scm.extensions,
+                    /*extensions: [[$class: 'SubmoduleOption',
                                            disableSubmodules: false,
                                            parentCredentials: true,
                                            recursiveSubmodules: true,
                                            reference: '',
-                                          trackingSubmodules: true]],
+                                          trackingSubmodules: true]],*/
                              submoduleCfg: [],,
                     userRemoteConfigs: scm.userRemoteConfigs
                 ])*/
