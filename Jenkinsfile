@@ -8,20 +8,21 @@ pipeline{
     
     stages{
         stage ('Clone Repo') {
-            checkout([
-                 $class: 'GitSCM',
-                 branches: scm.branches,
-                 doGenerateSubmoduleConfigurations: false,
-                 extensions: [[$class: 'SubmoduleOption',
-                                        disableSubmodules: false,
-                                        parentCredentials: true,
-                                        recursiveSubmodules: true,
-                                        reference: '',
-                                        trackingSubmodules: true]], 
-                          submoduleCfg: [],,
-                 userRemoteConfigs: scm.userRemoteConfigs
-            ])
-
+            steps {
+                checkout([
+                     $class: 'GitSCM',
+                     branches: scm.branches,
+                     doGenerateSubmoduleConfigurations: false,
+                     extensions: [[$class: 'SubmoduleOption',
+                                            disableSubmodules: false,
+                                            parentCredentials: true,
+                                            recursiveSubmodules: true,
+                                            reference: '',
+                                            trackingSubmodules: true]], 
+                              submoduleCfg: [],,
+                     userRemoteConfigs: scm.userRemoteConfigs
+                ])
+            }
         }   
         stage('Build') {
             steps {
