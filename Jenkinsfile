@@ -23,7 +23,6 @@ pipeline{
                     userRemoteConfigs: [[credentialsId: '4698f43c-8701-446a-a74b-d3e3eb0c4179',
                         url: 'https://github.com/rbuhl/pythread.git']]]
                 )
-
             }
         }   
 
