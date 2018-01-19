@@ -1,14 +1,14 @@
-pipeline{
-    agent any
+node{
+    /*agent any
     
     environment {
         DISABLE_AUTH = 'true'
         DB_ENGINE = 'sqlite'
-    }
+    }*/
     
-    stages{
+    /*stages{*/
         stage ('Clone Repo') {
-            steps{
+            /*steps{*/
                 sh 'echo branch: $BRANCH_NAME'
                 checkout([$class: 'GitSCM',
                     branches: [[name: '**']],
@@ -24,14 +24,14 @@ pipeline{
                         url: 'https://github.com/rbuhl/pythread.git']]]
                 )
 
-            }
+            /*}*/
         }   
 
         stage('Build') {
-            steps {
+            /*steps {*/
                 sh 'printenv'
-            }
+            /*}*/
         }
-    }
+    /*}*/
     
 }
