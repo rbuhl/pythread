@@ -1,14 +1,12 @@
 pipeline{
-    agent any
-    
-    def testvar
-    
+    agent any    
     environment {
         DISABLE_AUTH = 'true'
         DB_ENGINE = 'sqlite'
     }
     
     stages{
+        def testvar
         stage ('Clone Repo') {
             steps{
                 sh 'echo branch: $BRANCH_NAME'
