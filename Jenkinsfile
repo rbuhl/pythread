@@ -6,7 +6,6 @@ pipeline{
     }
     
     stages{
-        def testvar
         stage ('Clone Repo') {
             steps{
                 sh 'echo branch: $BRANCH_NAME'
